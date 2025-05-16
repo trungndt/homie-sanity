@@ -10,6 +10,8 @@ export default defineConfig({
   projectId: 'ipjfioh1',
   dataset: 'production',
 
+  studioHost: 'homieband',
+
   plugins: [structureTool(), visionTool()],
 
   schema: {

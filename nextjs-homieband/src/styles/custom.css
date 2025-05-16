@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #FF8C00;
+  --padding-base: 1rem;
+}
+
+.card {
+  background-color: var(--primary-color);
+  padding: var(--padding-base);
+  border-radius: 0.5rem;
+}
+
+/* Example of a custom class */
+.btn-primary {
+  /* @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700; */
+}
+
+a {
+  color: var(--primary-color) !important;
+}
+
+/* Or plain CSS if needed */
+.custom-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+h1 {
+  color: #ff6600 !important;
+}
+
+.button {
+  @apply bg-blue-600 text-white px-4 py-2 rounded;
+
+  &:hover {
+    @apply bg-blue-700;
+  }
+
+  &.secondary {
+    @apply bg-gray-600 hover:bg-gray-700;
+  }
+}
+

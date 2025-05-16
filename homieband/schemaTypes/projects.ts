@@ -4,7 +4,7 @@ export default {
     type: "document",
     fields: [
       { name: "photo", title: "Photo", type: "image" },
-      { name: "date", title: "Date", type: "date" },
+      { name: "date", title: "Date", type: "string" },
       { name: "name", title: "Project Name", type: "string" },
     ],
   };

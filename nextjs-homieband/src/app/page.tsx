@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { type SanityDocument } from "next-sanity";
 
+
 import { client } from "@/sanity/client";
 
 import Hero from "../components/Hero";
 import About from "../components/About";
-console.log(123)
+import Projects from "../components/Projects";
+import Team from "../components/Team";
 
 
 const POSTS_QUERY = `*[
@@ -20,19 +22,11 @@ export default async function IndexPage() {
 
   return (
     <main className="container mx-auto min-h-screen max-w-3xl p-8">
+      <div className="custom-title">Check if this is red</div>
       <Hero/>
       <About/>
-      <h1 className="text-4xl font-bold mb-8">Posssts</h1>
-      <ul className="flex flex-col gap-y-4">
-        {posts.map((post) => (
-          <li className="hover:underline" key={post._id}>
-            <Link href={`/${post.slug.current}`}>
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Projects/>
+      <Team/>
     </main>
   );
 }
