@@ -5,6 +5,7 @@ import { client } from "@/sanity/client";
 
 import Hero from "../components/Hero";
 import About from "../components/About";
+console.log(123)
 
 
 const POSTS_QUERY = `*[
