@@ -1,3 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ✅ Define font families using CSS variables */
+:root {
+    --font-body: "Roboto Condensed", sans-serif;
+    --font-heading: "Rowdies", cursive;
+  }
+
+:root {
+    --color-bg-black: #1A1A1E;
+    --color-bg-gray: #292830;
+    --color-fg-white: #fff;
+    --color-fg-sub: #D4D4D6;
+    --color-fg-dark: #232327;
+    --color-fg-placeholder: #8B8A8E;
+  }

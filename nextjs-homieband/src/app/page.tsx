@@ -1,9 +1,9 @@
-import Link from "next/link";
+// @ts-ignore
 import { type SanityDocument } from "next-sanity";
-
 
 import { client } from "@/sanity/client";
 
+import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Projects from "../components/Projects";
@@ -21,12 +21,12 @@ export default async function IndexPage() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8">
-      <div className="custom-title">Check if this is red</div>
+    <main className=" min-h-screen">
+      <Header/>
       <Hero/>
       <About/>
       <Projects/>
-      <Team/>
+      {/* <Team/> */}
     </main>
   );
 }

@@ -11,7 +11,7 @@ export default function Hero() {
         backgroundImage: `url(${urlFor(heroData.background).url()})`,
       }}
     >
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
+      <div className="hidden relative z-10 flex flex-col items-center justify-center h-full text-white">
         <h1 className="text-5xl font-bold">{heroData.title}</h1>
         <p className="mt-2 text-xl">{heroData.headline}</p>
       </div>

@@ -5,12 +5,16 @@ const data = await client.fetch(query);
 
 export default function About() {
     return (
-        <section className="relative h-screen bg-cover bg-center">
-            {/* <img src={urlFor(data.image).url()} /> */}
-            <img src={urlFor(data.image).url()} />
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
-                <h2 className="text-5xl font-bold">{data.title}</h2>
-                <p className="mt-2 text-xl">{data.description}</p>
+        <section id="about" className="py-20">
+            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div className="md:col-span-1">
+                    <img src={urlFor(data.image).url()} alt="Descriptive alt" className="w-auto h-[500px] rounded" />
+                </div>
+
+                <div className="md:col-span-1 space-y-4">
+                    <h2>{data.title}</h2>
+                    <p className="mt-2 text-xl">{data.description}</p>
+                </div>
             </div>
         </section>
     );
