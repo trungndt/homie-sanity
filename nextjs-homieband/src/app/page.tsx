@@ -26,7 +26,7 @@ export default async function IndexPage() {
       <Hero/>
       <About/>
       <Projects/>
-      {/* <Team/> */}
+      <Team/>
     </main>
   );
 }
