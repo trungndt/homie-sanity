@@ -1,19 +1,27 @@
 import { client, urlFor } from "@/sanity/client";
 
-const query = `*[_type == "about"][0]`;
+const query = `*[_type == "contact"][0]`;
 const data = await client.fetch(query);
 
-export default function About() {
+export default function Contact() {
   return (
-    <section id="about" className="py-20 px-5 xl:px-20">
+    <section id="contact" className="py-20 px-5 xl:px-20">
       <div className="container">
-        <div className="section-title align-left">
-          <h2>Về HomieBand</h2>
-          <span>IT’S HOMIE</span>
-        </div>
+        <h2>Liên hệ đặt show</h2>
         <div className="mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <div className="md:col-span-1">
-            <img src={urlFor(data.image).url()} alt="Descriptive alt" className="w-auto h-[500px] rounded" />
+            <div>
+              <p>ĐIỆN THOẠI</p>
+              <p>{data.phone}</p>
+            </div>
+            <div>
+              <p>EMAIL</p>
+              <p>{data.email}</p>
+            </div>
+            <div>
+              <p>XEM THÊM VỀ HOMIEBAND</p>
+              <p>{data.phone}</p>
+            </div>
           </div>
 
           <div className="md:col-span-1 space-y-4">

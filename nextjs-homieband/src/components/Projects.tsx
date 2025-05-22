@@ -10,8 +10,11 @@ const data = await client.fetch(query);
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-5 xl:px-20">
-      <h2>Các dự án nổi bật</h2>
       <div className="relative grid grid-cols-4">
+        <div className="section-title align-right">
+          <h2>Các dự án nổi bật</h2>
+          <span>PROJECTS</span>
+        </div>
         {data.map((proj: any) => (
           <div className="proj-item group relative isolate card-wrapper w-full md:px-2.5 py-3">
             <img className="w-full h-40 object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />

@@ -30,6 +30,12 @@ section {
   background-color: var(--color-bg-black);
 }
 
+.section-title {
+  h2 {
+    
+  }
+}
+
 /* SECTION CONFIG */
 .proj-content {
   background-color: var(--color-bg-gray);
