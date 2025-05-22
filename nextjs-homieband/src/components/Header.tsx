@@ -76,7 +76,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {open && (
-        <ul className="md:hidden flex flex-col space-y-4 px-4 pb-4 text-white bg-black bg-opacity-80 rounded-b-md text-sm">
+        <ul className="md:hidden flex flex-col space-y-4 px-4 pb-4 text-white">
           <li className="cursor-pointer" onClick={() => scrollTo('about')}>
             VỀ HOMIE BAND
           </li>
