@@ -15,10 +15,10 @@ export default function Projects() {
           <h2>Các dự án nổi bật</h2>
           <span>PROJECTS</span>
         </div>
-        <div className="relative grid grid-cols-4 gap-4">
+        <div className="relative grid md:grid-cols-4 gap-4">
           {data.map((proj: any, index: number) => (
             <div key={proj._id || index} className="proj-item rounded-lg overflow-hidden w-full">
-              <div className="aspect-[4/3] overflow-hidden rounded-lg">
+              <div className="aspect-[4/3]">
                 <img className="w-full h-full object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
               </div>
 
