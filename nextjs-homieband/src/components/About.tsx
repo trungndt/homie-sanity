@@ -1,4 +1,5 @@
 import { client, urlFor } from "@/sanity/client";
+import { PortableText } from "@portabletext/react";
 
 const query = `*[_type == "about"][0]`;
 const data = await client.fetch(query);
@@ -17,7 +18,9 @@ export default function About() {
               <h2>Về HomieBand</h2>
               <span>IT’S HOMIE</span>
             </div>
-            <p className="mt-2 text-xl">{data.description}</p>
+            <div className="wysiwyg text-xl">
+              <PortableText value={data.description} />
+            </div>
           </div>
         </div>
       </div>

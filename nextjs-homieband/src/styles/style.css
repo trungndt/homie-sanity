@@ -30,6 +30,12 @@ section {
   background-color: var(--color-bg-black);
 }
 
+.wysiwyg {
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
 .section-title {
   padding: 2rem 0;
   position: relative;
