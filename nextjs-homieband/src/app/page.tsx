@@ -15,7 +15,7 @@ const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
   return (
-    <main className=" min-h-screen">
+    <main className=" min-h-screen max-w-screen overflow-hidden">
       <Header/>
       <Hero/>
       <About/>
