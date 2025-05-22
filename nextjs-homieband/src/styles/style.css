@@ -38,7 +38,7 @@ header {
 }
 
 
-/* SECTION CONFIG */
+/* AREA: SECTION */
 section {
   background-color: var(--color-bg-black);
 }
@@ -95,7 +95,21 @@ section {
   }
 }
 
-/* SECTION CONFIG */
+/* AREA: PROJECT */
+.proj-item {
+  overflow: hidden;
+}
 .proj-content {
   background-color: var(--color-bg-gray);
+}
+.proj-date {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: var(--color-fg-sub)
+}
+
+.proj-name {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-fg-white);
 }

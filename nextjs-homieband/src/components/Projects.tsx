@@ -14,13 +14,13 @@ export default function Projects() {
         <h2>Các dự án nổi bật</h2>
         <span>PROJECTS</span>
       </div>
-      <div className="relative grid grid-cols-4">
+      <div className="relative grid grid-cols-4 gap-4">
         {data.map((proj: any) => (
-          <div className="proj-item group relative isolate card-wrapper w-full md:px-2.5 py-3">
+          <div className="proj-item rounded-lg overflow-hidden w-full">
             <img className="w-full h-40 object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
-            <div className="proj-content px-6 py-4 h-[150px]">
-              <p className="text-base">{proj.date}</p>
-              <p className="text-base">{proj.name}</p>
+            <div className="proj-content px-4 py-4 h-[120px]">
+              <div className="proj-date">{proj.date}</div>
+              <div className="proj-name">{proj.name}</div>
             </div>
           </div>
         ))}
