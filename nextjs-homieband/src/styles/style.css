@@ -21,6 +21,10 @@ h2 {
   font-size: 2.25rem;
 }
 
+h3 {
+  font-size: 1.625rem;
+}
+
 p {
   color: var(--color-fg-white)
 }
@@ -99,9 +103,11 @@ section {
 .proj-item {
   overflow: hidden;
 }
+
 .proj-content {
   background-color: var(--color-bg-gray);
 }
+
 .proj-date {
   font-size: 14px;
   letter-spacing: 1px;
@@ -112,4 +118,41 @@ section {
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-fg-white);
+}
+
+/* AREA: TEAM */
+.team-content {
+  background-color: rgba(26, 26, 30, .8);
+  padding: 1rem;
+  position: absolute;
+  width: 75%;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title {
+  margin-top: -2rem;
+  margin-bottom: 1rem;
+}
+
+.team-name {
+  background-color: rgba(255, 255, 255, .8);
+  padding: .5rem;
+  color: var(--color-fg-dark);
+  display: inline-block;
+}
+
+.team-role {
+  padding-left: .5rem;
+  color: var(--color-fg-white);
+  font-size: .875rem;
+  text-transform: uppercase;
+  transform: translateY(30%);
+  display: inline-block;
+
+}
+
+.team-item .wysiwyg p {
+  margin-bottom: .25rem;
 }

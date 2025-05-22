@@ -15,8 +15,8 @@ export default function Projects() {
         <span>PROJECTS</span>
       </div>
       <div className="relative grid grid-cols-4 gap-4">
-        {data.map((proj: any) => (
-          <div className="proj-item rounded-lg overflow-hidden w-full">
+        {data.map((proj: any, index: number) => (
+          <div key={proj._id || index} className="proj-item rounded-lg overflow-hidden w-full">
             <img className="w-full h-40 object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
             <div className="proj-content px-4 py-4 h-[120px]">
               <div className="proj-date">{proj.date}</div>

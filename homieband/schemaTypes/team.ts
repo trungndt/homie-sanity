@@ -1,3 +1,4 @@
+import blockContent from "./blockContent";
 export default {
     name: "team",
     title: "Team Members",
@@ -6,7 +7,7 @@ export default {
       { name: "photo", title: "Photo", type: "image" },
       { name: "name", title: "Name", type: "string" },
       { name: "role", title: "Role", type: "string" },
-      { name: "description", title: "Description", type: "text" },
+      { name: "description", title: "Description", type: "blockContent" },
     ],
   };
   
