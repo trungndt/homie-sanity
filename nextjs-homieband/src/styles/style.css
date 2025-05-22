@@ -31,8 +31,48 @@ section {
 }
 
 .section-title {
+  padding: 2rem 0;
+  position: relative;
+  margin-bottom: 1rem;
+
   h2 {
-    
+    position: relative;
+    z-index: 1;
+  }
+
+  span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 10rem;
+    color: var(--color-fg-dark);
+    letter-spacing: 15px;
+    white-space: nowrap;
+    display: block;
+    position: absolute;
+    top: 50%;
+  }
+
+  &.align-left span {
+    left: 0;
+    transform: translate(-5%, -50%);
+  }
+
+  &.align-center {
+    text-align: center;
+
+    span {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.align-right {
+    text-align: right;
+
+    span {
+      right: 0;
+      transform: translate(5%, -50%);
+    }
   }
 }
 
