@@ -9,17 +9,20 @@ const data = await client.fetch(query);
 
 export default function Projects() {
   return (
-    <div className="flex">
-      {data.map((proj: any) => (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-          <img className="w-full" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
-          <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">{proj.name}</div>
-            <p className="text-gray-700 text-base">{proj.date}</p>
+    <section id="project" className="py-20 px-5 xl:px-20">
+      <h2>Các dự án nổi bật</h2>
+      <div className="relative grid grid-cols-4">
+        {data.map((proj: any) => (
+          <div className="proj-item group relative isolate card-wrapper w-full md:px-2.5 py-3">
+            <img className="w-full h-40 object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
+            <div className="proj-content px-6 py-4 h-[150px]">
+              <p className="text-base">{proj.date}</p>
+              <p className="text-base">{proj.name}</p>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </section>
   );
 }
 

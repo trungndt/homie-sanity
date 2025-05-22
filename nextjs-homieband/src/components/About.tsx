@@ -5,7 +5,7 @@ const data = await client.fetch(query);
 
 export default function About() {
     return (
-        <section id="about" className="py-20">
+        <section id="about" className="py-20 px-5 xl:px-20">
             <div className="container">
             <div className="mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 <div className="md:col-span-1">

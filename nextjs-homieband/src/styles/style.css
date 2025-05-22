@@ -8,11 +8,15 @@ body {
   /* font-size: 16px; */
 }
 
-h2, h3, h4, h5 {
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font-heading);
   font-weight: 100;
   color: var(--color-fg-white)
 }
+
 h2 {
   font-size: 2.25rem;
 }
@@ -21,7 +25,12 @@ p {
   color: var(--color-fg-white)
 }
 
-  /* SECTION CONFIG */
-  section {
-    background-color: var(--color-bg-black);
-  }
+/* SECTION CONFIG */
+section {
+  background-color: var(--color-bg-black);
+}
+
+/* SECTION CONFIG */
+.proj-content {
+  background-color: var(--color-bg-gray);
+}
