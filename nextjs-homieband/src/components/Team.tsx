@@ -8,25 +8,27 @@ export default function Team() {
 
   return (
     <section id="team" className="py-20 px-5 xl:px-20">
-      <div className="section-title align-center">
-        <h2>Thành viên HomieBand</h2>
-        <span>MEMBERS</span>
-      </div>
-      <div className="relative grid grid-cols-3">
-        {data.map((team: any, index: number) => (
-          <div key={team._id || index} className="team-item group relative w-full md:px-2.5 py-3">
-            <img className="w-full object-cover" src={team.photo ? urlFor(team.photo).url() : '/placeholder.jpg'} />
-            <div className="team-content px-6 py-4">
-              <div className="title">
-                <h3 className="team-name">{team.name}</h3>
-                <span className="team-role">{team.role}</span>
-              </div>
-              <div className="wysiwyg">
-                <PortableText value={team.description} />
+      <div className="container mx-auto">
+        <div className="section-title align-center">
+          <h2>Thành viên HomieBand</h2>
+          <span>MEMBERS</span>
+        </div>
+        <div className="relative grid grid-cols-3">
+          {data.map((team: any, index: number) => (
+            <div key={team._id || index} className="team-item group relative w-full md:px-2.5 py-3">
+              <img className="w-full object-cover" src={team.photo ? urlFor(team.photo).url() : '/placeholder.jpg'} />
+              <div className="team-content px-6 py-4">
+                <div className="title">
+                  <h3 className="team-name">{team.name}</h3>
+                  <span className="team-role">{team.role}</span>
+                </div>
+                <div className="wysiwyg">
+                  <PortableText value={team.description} />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -25,34 +25,16 @@ export default function Header() {
         }`}
     >
       <nav className="container mx-auto flex justify-between items-center py-3">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src={logo}
-            alt="Logo"
-            className="h-[32px] sm:h-[36px] md:h-[40px] cursor-pointer w-auto"
-            onClick={() => scrollTo('top')}
-          />
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex justify-center items-center space-x-6 lg:space-x-10 text-xs sm:text-sm text-white">
-          <li className="cursor-pointer" onClick={() => scrollTo('about')}>
-            VỀ HOMIE BAND
-          </li>
-          <li className="cursor-pointer" onClick={() => scrollTo('projects')}>
-            DỰ ÁN NỔI BẬT
-          </li>
-          <li className="cursor-pointer" onClick={() => scrollTo('team')}>
-            THÀNH VIÊN HOMIE
-          </li>
-          <li className="cursor-pointer" onClick={() => scrollTo('contact')}>
-            LIÊN HỆ
-          </li>
-        </ul>
-
-        {/* Mobile Toggle */}
+        {/* Mobile menu button */}
         <div className="md:hidden">
+          {/* Centered Logo */}
+          <div
+            className="absolute left-1/2 transform -translate-x-1/2 -translate-y-0 cursor-pointer z-10"
+            onClick={() => scrollTo('top')}
+          >
+            <Image src={logo} alt="Logo" className="h-[32px] sm:h-[36px] md:h-[40px] w-auto"/>
+          </div>
+          
           <button onClick={() => setOpen(!open)} className="text-white focus:outline-none">
             <svg
               className="w-6 h-6"
@@ -69,7 +51,28 @@ export default function Header() {
             </svg>
           </button>
         </div>
+
+        {/* Desktop menu with centered logo */}
+        <ul className="hidden md:flex w-full justify-center items-center text-xs sm:text-sm text-white">
+          <li className="mx-4 cursor-pointer" onClick={() => scrollTo('about')}>
+            VỀ HOMIE BAND
+          </li>
+          <li className="mx-4 cursor-pointer" onClick={() => scrollTo('projects')}>
+            DỰ ÁN NỔI BẬT
+          </li>
+          <li className="mx-4 cursor-pointer px-4" onClick={() => scrollTo('top')}>
+            <Image src={logo} alt="Logo" className="h-[32px] sm:h-[36px] md:h-[40px] w-auto" />
+          </li>
+          <li className="mx-4 cursor-pointer" onClick={() => scrollTo('team')}>
+            THÀNH VIÊN HOMIE
+          </li>
+          <li className="mx-4 cursor-pointer" onClick={() => scrollTo('contact')}>
+            LIÊN HỆ
+          </li>
+        </ul>
       </nav>
+
+
 
       {/* Mobile Menu */}
       {open && (

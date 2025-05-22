@@ -10,20 +10,25 @@ const data = await client.fetch(query);
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-5 xl:px-20">
-      <div className="section-title align-right">
-        <h2>Các dự án nổi bật</h2>
-        <span>PROJECTS</span>
-      </div>
-      <div className="relative grid grid-cols-4 gap-4">
-        {data.map((proj: any, index: number) => (
-          <div key={proj._id || index} className="proj-item rounded-lg overflow-hidden w-full">
-            <img className="w-full h-40 object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
-            <div className="proj-content px-4 py-4 h-[120px]">
-              <div className="proj-date">{proj.date}</div>
-              <div className="proj-name">{proj.name}</div>
+      <div className="container mx-auto">
+        <div className="section-title align-right">
+          <h2>Các dự án nổi bật</h2>
+          <span>PROJECTS</span>
+        </div>
+        <div className="relative grid grid-cols-4 gap-4">
+          {data.map((proj: any, index: number) => (
+            <div key={proj._id || index} className="proj-item rounded-lg overflow-hidden w-full">
+              <div className="aspect-[4/3] overflow-hidden rounded-lg">
+                <img className="w-full h-full object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
+              </div>
+
+              <div className="proj-content px-4 py-4 h-[120px]">
+                <div className="proj-date">{proj.date}</div>
+                <div className="proj-name">{proj.name}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
