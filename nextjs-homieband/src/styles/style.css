@@ -25,6 +25,19 @@ p {
   color: var(--color-fg-white)
 }
 
+/* AREA: NAV */
+header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &.nav-stick {
+    background-color: rgba(26, 26, 30, .8);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+
 /* SECTION CONFIG */
 section {
   background-color: var(--color-bg-black);

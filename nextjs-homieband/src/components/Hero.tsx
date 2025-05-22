@@ -6,7 +6,7 @@ const heroData = await client.fetch(heroQuery);
 export default function Hero() {
 
   return (
-    <section className="relative h-screen bg-cover bg-center"
+    <section id="top" className="relative h-screen bg-cover bg-center"
     style={{
         backgroundImage: `url(${urlFor(heroData.background).url()})`,
       }}
