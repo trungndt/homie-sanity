@@ -9,7 +9,7 @@ const data = await client.fetch(query);
 
 export default function Projects() {
   return (
-    <section id="project" className="py-20 px-5 xl:px-20">
+    <section id="projects" className="py-20 px-5 xl:px-20">
       <h2>Các dự án nổi bật</h2>
       <div className="relative grid grid-cols-4">
         {data.map((proj: any) => (
