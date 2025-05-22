@@ -1,8 +1,4 @@
-// @ts-ignore
-import { type SanityDocument } from "next-sanity";
-
-import { client } from "@/sanity/client";
-
+// @ts-expect-error
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -19,8 +15,6 @@ const POSTS_QUERY = `*[
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
-
   return (
     <main className=" min-h-screen">
       <Header/>
