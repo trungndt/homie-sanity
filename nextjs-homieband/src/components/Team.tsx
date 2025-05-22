@@ -13,7 +13,7 @@ export default function Team() {
           <h2>Thành viên HomieBand</h2>
           <span>MEMBERS</span>
         </div>
-        <div className="relative grid grid-cols-3">
+        <div className="relative grid md:grid-cols-3">
           {data.map((team: any, index: number) => (
             <div key={team._id || index} className="team-item group relative w-full md:px-2.5 py-3">
               <img className="w-full object-cover" src={team.photo ? urlFor(team.photo).url() : '/placeholder.jpg'} />
