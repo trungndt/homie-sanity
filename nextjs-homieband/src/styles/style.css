@@ -158,3 +158,8 @@ section {
 .team-item .wysiwyg p {
   margin-bottom: .25rem;
 }
+
+/* AREA: CONTACT */
+.form-container {
+  background-color: var(--color-bg-gray);
+}
