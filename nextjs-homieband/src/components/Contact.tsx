@@ -1,6 +1,7 @@
 import { client, urlFor } from "@/sanity/client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import BookingForm from "./BookingForm";
 
 const query = `*[_type == "contact"][0]`;
@@ -65,6 +66,16 @@ export default function Contact() {
 
         </div>
       </div>
+      {/* Floating Call Button */}
+      {data.phone && (
+        <a
+          href={`tel:${data.phone}`}
+          className="fixed bottom-6 right-6 bg-black p-5 shadow-lg rounded-full md:hidden z-10"
+          aria-label="Gọi điện cho HomieBand"
+        >
+          <FontAwesomeIcon icon={faPhone} className="w-6 h-6 text-white hover:text-white-500 transition" />
+        </a>
+      )}
     </section>
   );
 }
