@@ -1,27 +1,22 @@
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Team from "../components/Team";
-import Contact from "../components/Contact";
-
-
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
-
-const options = { next: { revalidate: 30 } };
+import Header from "../components/Header"
+import Hero from "../components/Hero"
+import About from "../components/About"
+import Projects from "../components/Projects"
+import Team from "../components/Team"
+import Contact from "../components/Contact"
+import { getProjects } from '@/lib/getProjects'
 
 export default async function IndexPage() {
+  const projects = await getProjects() // ✅ fetch from server
+
   return (
-    <main className=" min-h-screen max-w-screen overflow-hidden">
-      <Header/>
-      <Hero/>
-      <About/>
-      <Projects/>
-      <Team/>
-      <Contact/>
+    <main className="min-h-screen max-w-screen overflow-hidden">
+      <Header />
+      <Hero />
+      <About />
+      <Projects data={projects || []} /> {/* ✅ pass as prop */}
+      <Team />
+      <Contact />
     </main>
-  );
+  )
 }

@@ -1,88 +1,85 @@
-import { client, urlFor } from '@/sanity/client'
-// import { useEffect, useState, useCallback, useRef } from 'react'
-// import Image from 'next/image'
-// import useEmblaCarousel from 'embla-carousel-react'
+'use client'
 
+import { urlFor } from '@/sanity/client'
+import useEmblaCarousel from 'embla-carousel-react'
+import { useEffect, useState, useCallback } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-const query = `*[_type == "project"]`;
-const data = await client.fetch(query);
+export default function Projects({ data }: { data: any[] }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: 1, containScroll: 'trimSnaps' })
+  const [prevEnabled, setPrevEnabled] = useState(false)
+  const [nextEnabled, setNextEnabled] = useState(false)
 
-export default function Projects() {
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setPrevEnabled(emblaApi.canScrollPrev())
+    setNextEnabled(emblaApi.canScrollNext())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    emblaApi.on('select', onSelect)
+    onSelect()
+  }, [emblaApi, onSelect])
+
   return (
     <section id="projects" className="py-20 px-5 xl:px-20">
       <div className="container mx-auto">
-        <div className="section-title align-right">
-          <h2>Các dự án nổi bật</h2>
-          <span>PROJECTS</span>
-        </div>
-        <div className="relative grid md:grid-cols-4 gap-4">
-          {data.map((proj: any, index: number) => (
-            <div key={proj._id || index} className="proj-item rounded-lg overflow-hidden w-full">
-              <div className="aspect-[4/3]">
-                <img className="w-full h-full object-cover" src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'} />
-              </div>
+        <div className="col-span-4 flex items-center justify-between mb-4">
+          {/* Arrows on the left */}
+          <div className="flex gap-2">
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!prevEnabled}
+              className="w-10 h-10 flex items-center justify-center bg-white text-black rounded-md shadow-md hover:bg-gray-200 disabled:opacity-40 cursor-pointer"
+            >
+              <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!nextEnabled}
+              className="w-10 h-10 flex items-center justify-center bg-white text-black rounded-md shadow-md hover:bg-gray-200 disabled:opacity-40 cursor-pointer"
+            >
+              <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
+            </button>
+          </div>
 
-              <div className="proj-content px-4 py-4 h-[120px]">
-                <div className="proj-date">{proj.date}</div>
-                <div className="proj-name">{proj.name}</div>
-              </div>
+          {/* Section title on the right */}
+          <div className="section-title align-right">
+            <h2>Các dự án nổi bật</h2>
+            <span>PROJECTS</span>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {data.map((proj, index) => (
+                <div
+                  key={proj._id || index}
+                  className="w-1/4 flex-shrink-0 px-2"
+                >
+                  <div className="rounded-lg overflow-hidden">
+                    <div className="aspect-[4/3]">
+                      <img
+                        src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'}
+                        className="w-full h-full object-cover"
+                        alt={proj.name}
+                      />
+                    </div>
+                    <div className="proj-content px-4 py-4 h-[120px]">
+                      <div className="proj-date">{proj.date}</div>
+                      <div className="proj-name">{proj.name}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
     </section>
-  );
+  )
 }
-
-// export default function Projects() {
-//   const [projects, setProjects] = useState<any[]>([])
-//   const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: 1, containScroll: 'trimSnaps' })
-
-//   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
-//   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       const query = `*[_type == "project"]{_id, name, photo, date}`
-//       const result = await client.fetch(query)
-//       setProjects(result)
-//     }
-//     fetchData()
-//   }, [])
-
-//   return (
-//     <div className="relative w-full py-10">
-//       <h2 className="text-3xl font-bold mb-6">Projects</h2>
-
-//       <div className="flex justify-between items-center mb-4">
-//         <button onClick={scrollPrev} className="px-4 py-2 bg-gray-300 rounded">◀</button>
-//         <button onClick={scrollNext} className="px-4 py-2 bg-gray-300 rounded">▶</button>
-//       </div>
-
-//       <div className="overflow-hidden" ref={emblaRef}>
-//         <div className="flex">
-//           {projects.map((proj) => (
-//             <div
-//               key={proj._id}
-//               className="min-w-[25%] px-2"
-//             >
-//               <div className="bg-white rounded shadow p-4">
-//                 {proj.photo && (
-//                   <Image
-//                     src={urlFor(proj.photo).url()}
-//                     alt={proj.name}
-//                     width={400}
-//                     height={300}
-//                     className="rounded"
-//                   />
-//                 )}
-//                 <h3 className="mt-2 font-semibold">{proj.name}</h3>
-//                 <p className="text-sm text-gray-600">{proj.date}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
