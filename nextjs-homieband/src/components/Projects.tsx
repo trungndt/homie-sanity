@@ -7,7 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function Projects({ data }: { data: any[] }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: 1, containScroll: 'trimSnaps' })
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: false,
+    containScroll: 'trimSnaps',
+  })
   const [prevEnabled, setPrevEnabled] = useState(false)
   const [nextEnabled, setNextEnabled] = useState(false)
 
@@ -54,18 +58,18 @@ export default function Projects({ data }: { data: any[] }) {
 
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+            <div className="flex snap-x">
               {data.map((proj, index) => (
                 <div
                   key={proj._id || index}
-                  className="w-1/4 flex-shrink-0 px-2"
+                  className="w-full sm:w-1/2 lg:w-1/4 flex-shrink-0 px-2 snap-start"
                 >
-                  <div className="rounded-lg overflow-hidden">
+                  <div className="rounded-lg overflow-hidden bg-[#1a1a1a]">
                     <div className="aspect-[4/3]">
                       <img
                         src={proj.photo ? urlFor(proj.photo).url() : '/placeholder.jpg'}
-                        className="w-full h-full object-cover"
                         alt={proj.name}
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="proj-content px-4 py-4 h-[120px]">
