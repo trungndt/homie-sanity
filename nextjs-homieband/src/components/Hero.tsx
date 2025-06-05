@@ -30,20 +30,27 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [heroData]);
 
-  if (!heroData) return null;
+  if (!heroData) {
+    return (
+      <section id="top" className="relative h-screen w-full overflow-hidden bg-black">
+        <div className="shader z-1"></div>
+      </section>
+    );
+  }
 
   return (
     <section id="top" className="relative h-screen w-full overflow-hidden">
-      {heroData.backgrounds?.map((img: any, i: number) => (
-        <div
-          key={img._key}
-          className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[3000ms] ease-in-out ${
-            i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-          style={{ backgroundImage: `url(${urlFor(img).url()})` }}
-        />
-      ))}
-
+      <div className="shader z-1"></div>
+      <div className="relative w-full h-full z-0">
+        {heroData.backgrounds?.map((img: any, i: number) => (
+          <div
+            key={img._key}
+            className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[3000ms] ease-in-out ${i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            style={{ backgroundImage: `url(${urlFor(img).quality(100).url()})` }}
+          />
+        ))}
+      </div>
     </section>
   );
 }
