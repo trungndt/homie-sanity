@@ -40,13 +40,13 @@ export default function Contact() {
                 <h4 className="font-normal mb-3">XEM THÊM VỀ HOMIEBAND</h4>
                 <div className="flex gap-4 items-center">
                   <a href={data.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <FontAwesomeIcon icon={faFacebook} className="w-6 h-6 text-white hover:text-blue-600 transition" />
+                    <FontAwesomeIcon icon={faFacebook} className="w-8 h-8 text-white hover:text-blue-600 transition" />
                   </a>
                   <a href={data.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                    <FontAwesomeIcon icon={faYoutube} className="w-6 h-6 text-white hover:text-red-500 transition" />
+                    <FontAwesomeIcon icon={faYoutube} className="w-8 h-8 text-white hover:text-red-500 transition" />
                   </a>
                   <a href={data.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                    <FontAwesomeIcon icon={faTiktok} className="w-6 h-6 text-white hover:text-pink-500 transition" />
+                    <FontAwesomeIcon icon={faTiktok} className="w-8 h-8 text-white hover:text-pink-500 transition" />
                   </a>
 
                 </div>
@@ -73,7 +73,7 @@ export default function Contact() {
           className="fixed bottom-6 right-6 bg-black p-5 shadow-lg rounded-full md:hidden z-10"
           aria-label="Gọi điện cho HomieBand"
         >
-          <FontAwesomeIcon icon={faPhone} className="w-6 h-6 text-white hover:text-white-500 transition" />
+          <FontAwesomeIcon icon={faPhone} className="w-8 h-8 text-white hover:text-white-500 transition" />
         </a>
       )}
     </section>
