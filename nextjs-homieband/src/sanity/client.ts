@@ -2,9 +2,6 @@ import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import { NextResponse } from 'next/server'
 
-console.log('SANITY_API_WRITE_TOKEN =', process.env.SANITY_API_WRITE_TOKEN); // debug log
-
-
 export const client = createClient({
   projectId: "ipjfioh1",
   dataset: "production",
