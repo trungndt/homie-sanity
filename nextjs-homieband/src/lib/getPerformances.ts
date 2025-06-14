@@ -8,7 +8,7 @@ export interface TeamSetPerformance {
 }
 
 const query = `
-  *[_type == "teamSetPerformance"]{
+  *[_type == "performance"]{
     teamSet,
     videos
   }
