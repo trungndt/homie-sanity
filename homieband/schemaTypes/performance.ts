@@ -10,7 +10,7 @@ export default {
         title: 'Team Set',
         type: 'string',
         options: {
-          list: ['Trio', 'Quartet', 'Quintet', 'Full Band'],
+          list: ['Full Band', 'Band 5', 'Band 4', 'Band 3'],
         },
         validation: (Rule: any) => Rule.required().min(1)
 

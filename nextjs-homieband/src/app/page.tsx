@@ -11,7 +11,6 @@ import { getPerformances } from '@/lib/getPerformances'
 export default async function IndexPage() {
   const projects = await getProjects() // ✅ fetch from server
   const perfs = await getPerformances() // ✅ fetch from server
-  console.log('Performance data:', perfs);
 
   return (
     <main className="min-h-screen max-w-screen overflow-hidden">

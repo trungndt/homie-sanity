@@ -1,6 +1,5 @@
 import { client } from '@/sanity/client'
-
-export type TeamSet = 'Trio' | 'Quartet' | 'Quintet' | 'Full Band';
+import { TeamSet } from '@/constants/teamSet';
 
 export interface TeamSetPerformance {
   teamSet: TeamSet;
