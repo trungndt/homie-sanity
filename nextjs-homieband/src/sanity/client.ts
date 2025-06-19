@@ -3,12 +3,11 @@ import imageUrlBuilder from "@sanity/image-url";
 import { NextResponse } from 'next/server'
 
 export const client = createClient({
-  projectId: "ipjfioh1",
-  dataset: "production",
-  apiVersion: "2024-01-01",
-  useCdn: false,
-  token: process.env.SANITY_API_READ_TOKEN,
-
+  projectId: 'ipjfioh1',
+  dataset: 'production',
+  apiVersion: '2024-01-01',
+  useCdn: true, // <-- only use Cdn for public read
+  token: undefined, // <-- no token for public read
 });
 
 const builder = imageUrlBuilder(client);

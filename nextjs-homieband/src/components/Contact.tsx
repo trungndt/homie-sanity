@@ -1,11 +1,12 @@
-import { client, urlFor } from "@/sanity/client";
+import { urlFor } from "@/sanity/client";
+import { clientWithWrite } from "@/sanity/clientWithWrite";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import BookingForm from "./BookingForm";
 
 const query = `*[_type == "contact"][0]`;
-const data = await client.fetch(query);
+const data = await clientWithWrite.fetch(query);
 
 export default function Contact() {
   return (
