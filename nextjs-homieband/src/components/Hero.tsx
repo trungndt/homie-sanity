@@ -1,9 +1,8 @@
+// src/components/Hero.tsx
 'use client';
-import { useEffect, useState } from 'react';
-import { client, urlFor } from '@/sanity/client';
-import groq from 'groq';
 
-const heroQuery = groq`*[_type == "hero"][0]`;
+import { useEffect, useState } from 'react';
+import { urlFor } from '@/sanity/client';
 
 export default function Hero() {
   const [heroData, setHeroData] = useState<any>(null);
@@ -12,10 +11,11 @@ export default function Hero() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await client.fetch(heroQuery);
+        const res = await fetch('/api/hero'); // ← proxy API route
+        const data = await res.json();
         setHeroData(data);
       } catch (err) {
-        console.error('Sanity fetch error:', err);
+        console.error('Fetch error:', err);
       }
     };
     fetchData();
@@ -43,7 +43,6 @@ export default function Hero() {
           style={{ backgroundImage: `url(${urlFor(img).url()})` }}
         />
       ))}
-
     </section>
   );
 }
