@@ -7,23 +7,13 @@ import Performance from "../components/Performance"
 import Contact from "../components/Contact"
 import { getProjects } from '@/lib/getProjects'
 import { getPerformances } from '@/lib/getPerformances'
-import { draftMode } from 'next/headers'
 
 export default async function IndexPage() {
-  const { isEnabled: isPreview } = await draftMode()
-
-  const projects = await getProjects(isPreview)
+  const projects = await getProjects(false)
   const perfs = await getPerformances()
-  console.log(projects)
-  console.log(isPreview)
 
   return (
     <div>
-      {isPreview && (
-        <div className="bg-yellow-400 text-black p-2 text-center">
-          Preview Mode Enabled
-        </div>
-      )}
       <main className="min-h-screen max-w-screen overflow-hidden">
         <Header />
         <Hero />

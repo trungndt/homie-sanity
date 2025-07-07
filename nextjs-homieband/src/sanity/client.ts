@@ -6,8 +6,8 @@ export const client = createClient({
   projectId: 'ipjfioh1',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: false, // <-- only use Cdn for public read
-  token: undefined, // <-- no token for public read
+  useCdn: false, // Always fetch latest published content
+  token: undefined, // no token for public read
 });
 
 const builder = imageUrlBuilder(client);
