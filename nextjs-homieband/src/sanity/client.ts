@@ -6,7 +6,7 @@ export const client = createClient({
   projectId: 'ipjfioh1',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: true, // <-- only use Cdn for public read
+  useCdn: false, // <-- only use Cdn for public read
   token: undefined, // <-- no token for public read
 });
 
