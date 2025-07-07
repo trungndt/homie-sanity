@@ -1,5 +1,8 @@
+// lib/getProjects.ts
 import { client } from '@/sanity/client'
-
-export const getProjects = async () => {
-  return await client.fetch(`*[_type == "project"]`)
+export async function getProjects(isPreview = false) {
+  const query = `*[_type == "project"]`
+  return client.fetch(query, {}, {
+    perspective: isPreview ? 'previewDrafts' : 'published',
+  })
 }

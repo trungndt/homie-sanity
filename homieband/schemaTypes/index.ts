@@ -1,9 +1,10 @@
 import blockContent from './blockContent'
 import hero from './hero'
 import about from './about'
-import projects from './projects'
+import project from './project'
 import team from './team'
+import performane from './performance'
 import contact from './contact'
 import booking from './booking'
 
-export const schemaTypes = [hero, about, projects, team, contact, blockContent, booking]
+export const schemaTypes = [hero, about, project, team, performane, contact, blockContent, booking]
