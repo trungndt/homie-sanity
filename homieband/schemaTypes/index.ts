@@ -6,5 +6,6 @@ import team from './team'
 import performane from './performance'
 import contact from './contact'
 import booking from './booking'
+import seo from './seo'
 
-export const schemaTypes = [hero, about, project, team, performane, contact, blockContent, booking]
+export const schemaTypes = [hero, about, project, team, performane, contact, blockContent, booking, seo]

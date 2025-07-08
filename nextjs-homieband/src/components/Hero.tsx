@@ -1,8 +1,9 @@
-// src/components/Hero.tsx
 'use client';
-
 import { useEffect, useState } from 'react';
-import { urlFor } from '@/sanity/client';
+import { client, urlFor } from '@/sanity/client';
+import groq from 'groq';
+
+const heroQuery = groq`*[_type == "hero"][0]`;
 
 export default function Hero() {
   const [heroData, setHeroData] = useState<any>(null);
@@ -11,11 +12,10 @@ export default function Hero() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/hero'); // ← proxy API route
-        const data = await res.json();
+        const data = await client.fetch(heroQuery);
         setHeroData(data);
       } catch (err) {
-        console.error('Fetch error:', err);
+        console.error('Sanity fetch error:', err);
       }
     };
     fetchData();
@@ -30,19 +30,27 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [heroData]);
 
-  if (!heroData) return null;
+  if (!heroData) {
+    return (
+      <section id="top" className="relative h-screen w-full overflow-hidden bg-black">
+        <div className="shader z-1"></div>
+      </section>
+    );
+  }
 
   return (
     <section id="top" className="relative h-screen w-full overflow-hidden">
-      {heroData.backgrounds?.map((img: any, i: number) => (
-        <div
-          key={img._key}
-          className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[3000ms] ease-in-out ${
-            i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-          style={{ backgroundImage: `url(${urlFor(img).url()})` }}
-        />
-      ))}
+      <div className="shader z-1"></div>
+      <div className="relative w-full h-full z-0">
+        {heroData.backgrounds?.map((img: any, i: number) => (
+          <div
+            key={img._key}
+            className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[3000ms] ease-in-out ${i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            style={{ backgroundImage: `url(${urlFor(img).quality(100).url()})` }}
+          />
+        ))}
+      </div>
     </section>
   );
 }
