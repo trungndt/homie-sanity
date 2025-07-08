@@ -9,7 +9,7 @@ import { getProjects } from '@/lib/getProjects'
 import { getPerformances } from '@/lib/getPerformances'
 
 export default async function IndexPage() {
-  const projects = await getProjects(false)
+  const projects = await getProjects()
   const perfs = await getPerformances()
 
   return (
