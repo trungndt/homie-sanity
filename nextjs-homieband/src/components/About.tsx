@@ -2,9 +2,10 @@ import { client, urlFor } from "@/sanity/client";
 import { PortableText } from "@portabletext/react";
 
 const query = `*[_type == "about"][0]`;
-const data = await client.fetch(query);
+//const data = await client.fetch(query);
 
-export default function About() {
+export default async function About() {
+  const data = await client.fetch(query, {}, { cache: "no-store" });
   return (
     <section id="about" className="py-20 px-5 xl:px-20 w-full overflow-hidden">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
